@@ -11,9 +11,8 @@ list<shared_ptr<WorldObject>> WorldUtils::getObjectsUnderCoord(float height,list
         for(auto&& it=objects.begin();it!=objects.end();++it){
             WorldObject* object=it->get();
             if(object->getBoundingBox().top<height)
-                returnableObjects.emplace_back(it->get());
+                returnableObjects.push_back(*it);
 
         }
-     //returnableObjects.emplace_back(new Wall());
     return returnableObjects;
 }
