@@ -6,9 +6,9 @@
 
 using namespace sf;
 using namespace std;
-static int tombBenKeres(int tömb[], int mit){
-    for(int i=0;i<tömb.lenght;i++){
-        if(i==tömb[i])
+static int tombBenKeres(int tomb[], int mit){
+    for(int i=0;i<sizeof(tomb);i++){
+        if(mit==tomb[i])
             return i;
     }
 }
