@@ -6,6 +6,12 @@
 
 using namespace sf;
 using namespace std;
+static int tombBenKeres(int tömb[], int mit){
+    for(int i=0;i<tömb.lenght;i++){
+        if(i==tömb[i])
+            return i;
+    }
+}
 int main() {
     Player player1("Steve","dickbutt");
     player1.loadTexture();
@@ -13,7 +19,7 @@ int main() {
     window.setFramerateLimit(60);
     World world(player1);
     Wall* wall=new Wall();
-    world.addObject(wall);
+    //world.addObject(wall);
     world.loadTextures();
     while (window.isOpen())
     {

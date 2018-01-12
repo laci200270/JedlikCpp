@@ -19,6 +19,7 @@ void Wall::loadTexture() {
     cout<<"Wall texture loaded"<<endl;
     //sprite.scale(0.1ff);
     sprite.setPosition(2,2);
+
 }
  void Wall::render(RenderWindow &window) {
    // cout<<"Render"<<endl;
@@ -26,8 +27,8 @@ void Wall::loadTexture() {
 }
 
 bool Wall::doesRectCollide(const Rect<float> &rectangle) {
-   // return false;
-    return sprite.getLocalBounds().intersects(rectangle);
+   return true;
+    return sprite.getGlobalBounds().intersects(rectangle);
 
 }
 Rect<float> Wall::getBoundingBox() {

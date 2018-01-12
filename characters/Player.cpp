@@ -7,7 +7,6 @@
 using  namespace sf;
 using namespace std;
 
-const float speed=1.5f;
 
 Player::Player(std::string name,std::string textName) {
     cout<<"Hello my name is "<<name<<endl;

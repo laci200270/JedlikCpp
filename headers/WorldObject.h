@@ -16,7 +16,7 @@ public:
         virtual void update(){};
         virtual void loadTexture(){};
         virtual void render(RenderWindow &window){} ;
-        virtual bool isSolidForPlayer(){ return false;};
+        virtual bool isSolidForPlayer(){ return true;};
         virtual bool isSolidForObject(WorldObject object){};
 };
 

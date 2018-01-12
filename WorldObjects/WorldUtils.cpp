@@ -3,7 +3,6 @@
 //
 
 #include "../headers/WorldUtils.h"
-#include "../headers/Wall.h"
 
 list<shared_ptr<WorldObject>> WorldUtils::getObjectsUnderCoord(float height,list<std::shared_ptr<WorldObject>>  &objects){
 
