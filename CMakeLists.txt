@@ -3,7 +3,7 @@ project(jedlikGame)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp characters/Player.cpp headers/Player.h WorldObjects/World.cpp headers/World.h headers/WorldObject.h WorldObjects/Wall.cpp headers/Wall.h Utils/WorldUtils.cpp headers/WorldUtils.h headers/configs.h Utils/GameManager.cpp headers/GameManager.h)
+set(SOURCE_FILES main.cpp characters/Player.cpp headers/Player.h WorldObjects/World.cpp headers/World.h headers/WorldObject.h WorldObjects/Wall.cpp headers/Wall.h Utils/WorldUtils.cpp headers/WorldUtils.h headers/configs.h Utils/GameManager.cpp headers/GameManager.h WorldObjects/Pipe.cpp headers/Pipe.h)
 add_executable(jedlikGame ${SOURCE_FILES})
 
 # Detect and add SFML

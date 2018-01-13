@@ -17,7 +17,7 @@ void Wall::loadTexture() {
     sprite=sf::Sprite(texture);
     std::cout<<"Wall texture loaded"<<std::endl;
     //sprite.scale(0.1ff);
-    sprite.setPosition(2,2);
+    sprite.setPosition(400,700);
 
 }
  void Wall::render(sf::RenderWindow &window) {
