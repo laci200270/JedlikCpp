@@ -3,6 +3,7 @@
 #include "headers/Player.h"
 #include "headers/World.h"
 #include "headers/Wall.h"
+#include "configs.h"
 
 using namespace sf;
 using namespace std;
@@ -15,11 +16,13 @@ static int tombBenKeres(int tomb[], int mit){
 int main() {
     Player player1("Steve","dickbutt");
     player1.loadTexture();
-    sf::RenderWindow window(sf::VideoMode(1200, 700), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
+    View view(FloatRect(200,200,WIDTH*SCALING_W,HEIGHT*SCALING_H));
+
+    window.setView(view);
     window.setFramerateLimit(60);
     World world(player1);
     Wall* wall=new Wall();
-    //world.addObject(wall);
     world.loadTextures();
     while (window.isOpen())
     {
@@ -33,6 +36,8 @@ int main() {
                 window.close();
 
         }
+        if(!player1.getGameRunning()&&Keyboard::isKeyPressed(Keyboard::Space))
+            player1.setGameRunning(true);
         world.tick();
         window.setActive();
         world.render(window);

@@ -12,25 +12,39 @@ Player::Player(std::string name,std::string textName) {
     cout<<"Hello my name is "<<name<<endl;
     this->name=name;
     this->textName=textName;
+    this->setGameRunning(false);
 }
 void Player::loadTexture() {
     texture.loadFromFile("textures/"+textName+".png");
     sprite=Sprite(texture);
-    sprite.scale(0.15f,0.15f);
-
+    sprite.scale(0.35f,0.35f);
+    //sprite.setPosition(0,0);
 }
+
+void Player::setGameRunning(bool state) {
+    isGameRunning=state;
+}
+
+bool Player::getGameRunning() const {
+    cout << "Game is" ;
+    if(!this->isGameRunning)
+        cout << " not";
+    cout << " running" <<endl;
+    return isGameRunning;
+}
+
 void Player::render(sf::RenderWindow &window) {
     window.draw(sprite);
-
+    //cout<<"Render"<<endl;
 }
 void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
-    if(Keyboard::isKeyPressed(Keyboard::Right)||Keyboard::isKeyPressed(Keyboard::D)) {
+   /* if(Keyboard::isKeyPressed(Keyboard::Right)||Keyboard::isKeyPressed(Keyboard::D)) {
         sprite.setPosition(sprite.getPosition().x + speed.x, sprite.getPosition().y);
     }
     if(Keyboard::isKeyPressed(Keyboard::Left)||Keyboard::isKeyPressed(Keyboard::A)){
         sprite.setPosition(sprite.getPosition().x-speed.x,sprite.getPosition().y);
-    }
-    if(Keyboard::isKeyPressed(Keyboard::Up)||Keyboard::isKeyPressed(Keyboard::W)){
+    }*/
+    if(Keyboard::isKeyPressed(Keyboard::Up)||Keyboard::isKeyPressed(Keyboard::W)||Keyboard::isKeyPressed(Keyboard::Space)){
 
         speed.y=speed.y-3;
 
@@ -48,12 +62,15 @@ void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
             collide= true;
     }
     // collide=true;
-    if(!collide)
-        speed.y=speed.y+1;
-    else{
-        float damage=fabs(speed.y);
-        speed.y=0;
+    if(getGameRunning()) {
+        if (!collide)
+            speed.y = speed.y + 1;
+        else {
+            float damage = fabs(speed.y);
+            speed.y = 0;
+        }
     }
-    this->sprite.setPosition(speed.x+sprite.getPosition().x,speed.y+sprite.getPosition().y);
+    this->sprite.setPosition(speed.x + sprite.getPosition().x, speed.y + sprite.getPosition().y);
 
 }
+
