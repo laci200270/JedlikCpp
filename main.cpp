@@ -4,6 +4,7 @@
 #include "headers/World.h"
 #include "headers/Wall.h"
 #include "headers/configs.h"
+#include "headers/GameManager.h"
 
 static int tombBenKeres(int tomb[], int mit){
     for(int i=0;i<sizeof(tomb);i++){
@@ -35,8 +36,8 @@ int main() {
 
         }
 
-        if(!player1.getGameRunning()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            player1.setGameRunning();
+        if(!GameManager::getGameRunning()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+            GameManager::startGame();
         world.tick();
         window.setActive();
         world.render(window);

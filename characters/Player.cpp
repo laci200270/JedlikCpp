@@ -3,6 +3,7 @@
 #include <cmath>
 #include "../headers/Player.h"
 #include "../headers/WorldUtils.h"
+#include "../headers/GameManager.h"
 
 using  namespace sf;
 using namespace std;
@@ -21,14 +22,6 @@ void Player::loadTexture() {
     //sprite.setPosition(0,0);
 }
 
-void Player::setGameRunning() {
-    isGameRunning=true;
-}
-
-bool Player::getGameRunning() const {
-    std::cout << "Game is " << (isGameRunning ? "not" : "" ) << " running" << std::endl;
-    return isGameRunning;
-}
 
 void Player::render(sf::RenderWindow &window) {
     window.draw(sprite);
@@ -59,7 +52,7 @@ void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
             collide= true;
     }
     // collide=true;
-    if(getGameRunning()) {
+    if(GameManager::getGameRunning()) {
         if (!collide)
             speed.y = speed.y + 1;
         else {
