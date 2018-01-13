@@ -19,7 +19,6 @@ public:
     void tick();
     void loadTextures();
     void addObject(WorldObject* object);
-    std::list<std::shared_ptr<WorldObject>>  getObjects();
 };
 
 

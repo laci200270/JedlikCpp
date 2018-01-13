@@ -24,8 +24,7 @@ class Player {
      void loadTexture();
      void render(sf::RenderWindow &window);
      sf::Vector2f speed =sf::Vector2<float >();
-     void setGameRunning();
-     bool getGameRunning() const;
+
 
 };
 
