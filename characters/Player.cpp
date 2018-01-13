@@ -4,6 +4,7 @@
 #include "../headers/Player.h"
 #include "../headers/WorldUtils.h"
 #include "../headers/GameManager.h"
+#include "../headers/configs.h"
 
 using  namespace sf;
 using namespace std;
@@ -20,14 +21,21 @@ void Player::loadTexture() {
     texture.loadFromFile("textures/"+textName+".png");
     sprite=Sprite(texture);
     sprite.scale(5,5);
-    sprite.setPosition(200,700);
+    sprite.setPosition(WIDTH*SCALING_W/2,HEIGHT*SCALING_H/2);
 
 }
 
 
 void Player::render(sf::RenderWindow &window) {
     window.draw(sprite);
-    //cout<<"Render"<<endl;
+    FloatRect floatRect=sprite.getGlobalBounds();
+    RectangleShape rectangleShape(Vector2f(floatRect.width,floatRect.height));
+    rectangleShape.move(floatRect.left,floatRect.top);
+    rectangleShape.setFillColor(Color::Transparent);
+    rectangleShape.setOutlineColor(Color::Red);
+    rectangleShape.setOutlineThickness(15);
+    window.draw(rectangleShape);
+
 }
 void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
 
@@ -51,7 +59,7 @@ void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
             collide= true;
     }
     // collide=true;
-    speed.x=8;
+    speed.x=MOVINGSPEEDX;
     if(GameManager::getGameRunning()) {
         if (!collide)
             speed.y = speed.y + 0.25f;

@@ -8,5 +8,6 @@
 #define HEIGHT 700
 #define SCALING_W 2
 #define SCALING_H 2
+#define MOVINGSPEEDX 8
 
 #endif //JEDLIKGAME_CONFIGS_H
