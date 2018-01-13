@@ -12,7 +12,6 @@
 #include <asio/detail/shared_ptr.hpp>
 #include "WorldObject.h"
 
-using namespace std;
 class Player {
      std::string name;
      std::string textName;
@@ -21,11 +20,11 @@ class Player {
      bool isGameRunning=false;
  public:
      Player(std::string name,std::string textName);
-     void update(list<shared_ptr<WorldObject>> &objects);
+     void update(std::list<std::shared_ptr<WorldObject>> &objects);
      void loadTexture();
      void render(sf::RenderWindow &window);
-     Vector2f speed =Vector2<float >();
-     void setGameRunning(bool state);
+     sf::Vector2f speed =sf::Vector2<float >();
+     void setGameRunning();
      bool getGameRunning() const;
 
 };

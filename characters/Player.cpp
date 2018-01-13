@@ -21,8 +21,8 @@ void Player::loadTexture() {
     //sprite.setPosition(0,0);
 }
 
-void Player::setGameRunning(bool state) {
-    isGameRunning=state;
+void Player::setGameRunning() {
+    isGameRunning=true;
 }
 
 bool Player::getGameRunning() const {

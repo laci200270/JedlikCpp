@@ -8,7 +8,7 @@
 World::World(Player player) : player(player) {
     this->player=player;
 }
-void World::render(RenderWindow &window) {
+void World::render(sf::RenderWindow &window) {
     for (auto&& object : worldObjects)
         object->render(window);
     player.render(window);
@@ -24,9 +24,7 @@ void World::loadTextures()  {
 
 }
 
-/*list<std::shared_ptr<WorldObject>>  World::getObjects() {
-    return worldObjects;
-}*/
+
 void World::addObject(WorldObject* object) {
 
     worldObjects.emplace_back(object);

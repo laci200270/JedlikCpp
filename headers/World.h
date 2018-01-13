@@ -10,17 +10,16 @@
 #include "WorldObject.h"
 #include <list>
 #include <memory>
-using namespace std;
 class World {
-    list<std::shared_ptr<WorldObject>> worldObjects;
+    std::list<std::shared_ptr<WorldObject>> worldObjects;
 public:
     Player player;
     World(Player player);
-    void render(RenderWindow &window);
+    void render(sf::RenderWindow &window);
     void tick();
     void loadTextures();
     void addObject(WorldObject* object);
-    list<std::shared_ptr<WorldObject>>  getObjects();
+    std::list<std::shared_ptr<WorldObject>>  getObjects();
 };
 
 

@@ -18,9 +18,9 @@ protected: int size;
 public:
     void update() override ;
     void loadTexture() override ;
-    void render(RenderWindow &window) override ;
-    bool doesRectCollide(const Rect<float> &rectangle)  ;
-    Rect<float> getBoundingBox() override ;
+    void render(sf::RenderWindow &window) override ;
+    bool doesRectCollide(const sf::Rect<float> &rectangle)  ;
+    sf::Rect<float> getBoundingBox() override ;
 };
 
 

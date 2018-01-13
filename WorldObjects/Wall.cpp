@@ -7,30 +7,29 @@
 #include <iostream>
 #include "../headers/Wall.h"
 
-using namespace std;
 
 void Wall::update() {
 
 }
 void Wall::loadTexture() {
-    texture=Texture();
+    texture=sf::Texture();
     texture.loadFromFile("textures/wall.gif");
-    sprite=Sprite(texture);
-    cout<<"Wall texture loaded"<<endl;
+    sprite=sf::Sprite(texture);
+    std::cout<<"Wall texture loaded"<<std::endl;
     //sprite.scale(0.1ff);
     sprite.setPosition(2,2);
 
 }
- void Wall::render(RenderWindow &window) {
+ void Wall::render(sf::RenderWindow &window) {
    // cout<<"Render"<<endl;
     window.draw(sprite);
 }
 
-bool Wall::doesRectCollide(const Rect<float> &rectangle) {
-   return true;
+bool Wall::doesRectCollide(const sf::Rect<float> &rectangle) {
+   //return true;
     return sprite.getGlobalBounds().intersects(rectangle);
 
 }
-Rect<float> Wall::getBoundingBox() {
+sf::Rect<float> Wall::getBoundingBox() {
     return sprite.getGlobalBounds();
 }

@@ -3,10 +3,8 @@
 #include "headers/Player.h"
 #include "headers/World.h"
 #include "headers/Wall.h"
-#include "configs.h"
+#include "headers/configs.h"
 
-using namespace sf;
-using namespace std;
 static int tombBenKeres(int tomb[], int mit){
     for(int i=0;i<sizeof(tomb);i++){
         if(mit==tomb[i])
@@ -17,7 +15,7 @@ int main() {
     Player player1("Steve","dickbutt");
     player1.loadTexture();
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
-    View view(FloatRect(200,200,WIDTH*SCALING_W,HEIGHT*SCALING_H));
+    sf::View view(sf::FloatRect(200,200,WIDTH*SCALING_W,HEIGHT*SCALING_H));
 
     window.setView(view);
     window.setFramerateLimit(60);
@@ -28,7 +26,7 @@ int main() {
     {
 
         sf::Event event;
-        window.clear(Color::White);
+        window.clear(sf::Color::White);
         while (window.pollEvent(event))
         {
 
@@ -37,8 +35,8 @@ int main() {
 
         }
 
-        if(!player1.getGameRunning()&&Keyboard::isKeyPressed(Keyboard::Space))
-            player1.setGameRunning(true);
+        if(!player1.getGameRunning()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+            player1.setGameRunning();
         world.tick();
         window.setActive();
         world.render(window);

@@ -7,15 +7,14 @@
 
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
-using namespace sf;
 
  class WorldObject {
 public:
-        virtual bool doesRectCollide(const Rect<float> &rectangle){};
-        virtual Rect<float> getBoundingBox(){};
+        virtual bool doesRectCollide(const sf::Rect<float> &rectangle){};
+        virtual sf::Rect<float> getBoundingBox(){};
         virtual void update(){};
         virtual void loadTexture(){};
-        virtual void render(RenderWindow &window){} ;
+        virtual void render(sf::RenderWindow &window){} ;
         virtual bool isSolidForPlayer(){ return true;};
         virtual bool isSolidForObject(WorldObject object){};
 };
