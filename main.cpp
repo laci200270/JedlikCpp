@@ -36,6 +36,7 @@ int main() {
                 window.close();
 
         }
+
         if(!player1.getGameRunning()&&Keyboard::isKeyPressed(Keyboard::Space))
             player1.setGameRunning(true);
         world.tick();

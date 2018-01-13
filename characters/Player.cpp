@@ -12,7 +12,7 @@ Player::Player(std::string name,std::string textName) {
     cout<<"Hello my name is "<<name<<endl;
     this->name=name;
     this->textName=textName;
-    this->setGameRunning(false);
+    //this->setGameRunning(false);
 }
 void Player::loadTexture() {
     texture.loadFromFile("textures/"+textName+".png");
@@ -26,10 +26,7 @@ void Player::setGameRunning(bool state) {
 }
 
 bool Player::getGameRunning() const {
-    cout << "Game is" ;
-    if(!this->isGameRunning)
-        cout << " not";
-    cout << " running" <<endl;
+    std::cout << "Game is " << (isGameRunning ? "not" : "" ) << " running" << std::endl;
     return isGameRunning;
 }
 
