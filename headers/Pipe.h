@@ -11,7 +11,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "WorldObject.h"
 
-class Pipe : WorldObject{
+class Pipe :public WorldObject{
 protected: int size;
     sf::Texture texture;
     sf::Sprite sprite;

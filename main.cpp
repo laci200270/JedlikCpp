@@ -5,6 +5,7 @@
 #include "headers/Wall.h"
 #include "headers/configs.h"
 #include "headers/GameManager.h"
+#include "headers/Pipe.h"
 
 static int tombBenKeres(int tomb[], int mit){
     for(int i=0;i<sizeof(tomb);i++){
@@ -20,9 +21,6 @@ int main() {
     window.setView(view);
     window.setFramerateLimit(60);
     World world(player1);
-    Wall* wall=new Wall();
-
-    world.addObject(wall);
     world.loadTextures();
     while (window.isOpen())
     {
@@ -39,12 +37,11 @@ int main() {
 
         if(!GameManager::getGameRunning()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             GameManager::startGame();
-        view.move(8,0);
+        view.move(MOVINGSPEEDX,0);
         window.setView(view);
         world.tick();
         window.setActive();
         world.render(window);
-        //wall.render(window);
         window.display();
     }
 }
