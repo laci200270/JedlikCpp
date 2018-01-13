@@ -19,6 +19,8 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
     sf::View view(sf::FloatRect(200,200,WIDTH*SCALING_W,HEIGHT*SCALING_H));
     window.setView(view);
+    Pipe* pipes[]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
+
     window.setFramerateLimit(60);
     World world(player1);
     world.loadTextures();
