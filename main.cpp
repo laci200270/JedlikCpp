@@ -39,7 +39,7 @@ int main() {
 
         if(!GameManager::getGameRunning()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             GameManager::startGame();
-        view.move(6,0);
+        view.move(8,0);
         window.setView(view);
         world.tick();
         window.setActive();
