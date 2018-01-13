@@ -13,13 +13,15 @@ Player::Player(std::string name,std::string textName) {
     cout<<"Hello my name is "<<name<<endl;
     this->name=name;
     this->textName=textName;
+
     //this->setGameRunning(false);
 }
 void Player::loadTexture() {
     texture.loadFromFile("textures/"+textName+".png");
     sprite=Sprite(texture);
-    sprite.scale(0.35f,0.35f);
-    //sprite.setPosition(0,0);
+    sprite.scale(5,5);
+    sprite.setPosition(200,700);
+
 }
 
 
@@ -28,20 +30,17 @@ void Player::render(sf::RenderWindow &window) {
     //cout<<"Render"<<endl;
 }
 void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
-   /* if(Keyboard::isKeyPressed(Keyboard::Right)||Keyboard::isKeyPressed(Keyboard::D)) {
-        sprite.setPosition(sprite.getPosition().x + speed.x, sprite.getPosition().y);
-    }
-    if(Keyboard::isKeyPressed(Keyboard::Left)||Keyboard::isKeyPressed(Keyboard::A)){
-        sprite.setPosition(sprite.getPosition().x-speed.x,sprite.getPosition().y);
-    }*/
-    if(Keyboard::isKeyPressed(Keyboard::Up)||Keyboard::isKeyPressed(Keyboard::W)||Keyboard::isKeyPressed(Keyboard::Space)){
 
-        speed.y=speed.y-3;
 
-    }
-    /*if(Keyboard::isKeyPressed(Keyboard::Down) || Keyboard::isKeyPressed(Keyboard::S)){
-        sprite.setPosition(sprite.getPosition().x,sprite.getPosition().y+speed.y);
-    }*/
+        if(Keyboard::isKeyPressed(Keyboard::Space)){
+            if(!lastTimePressed)
+                speed.y=speed.y-15;
+            lastTimePressed=true;
+        }
+        else
+            lastTimePressed=false;
+
+
     list<shared_ptr<WorldObject>> possibleTrips=WorldUtils::getObjectsUnderCoord(this->sprite.getGlobalBounds().top-this->sprite.getGlobalBounds().height,worldObjects);
     bool collide=false;
     if(possibleTrips.size()>0)
@@ -52,9 +51,10 @@ void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
             collide= true;
     }
     // collide=true;
+    speed.x=8;
     if(GameManager::getGameRunning()) {
         if (!collide)
-            speed.y = speed.y + 1;
+            speed.y = speed.y + 0.25f;
         else {
             float damage = fabs(speed.y);
             speed.y = 0;

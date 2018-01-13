@@ -17,6 +17,7 @@ class Player {
      std::string textName;
      sf::Texture texture;
      sf::Sprite sprite;
+     bool lastTimePressed= false;
      bool isGameRunning=false;
  public:
      Player(std::string name,std::string textName);

@@ -13,7 +13,7 @@ static int tombBenKeres(int tomb[], int mit){
     }
 }
 int main() {
-    Player player1("Flesh","dickbutt");
+    Player player1("Flesh","flash");
     player1.loadTexture();
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
     sf::View view(sf::FloatRect(200,200,WIDTH*SCALING_W,HEIGHT*SCALING_H));
@@ -22,6 +22,8 @@ int main() {
     window.setFramerateLimit(60);
     World world(player1);
     Wall* wall=new Wall();
+
+    world.addObject(wall);
     world.loadTextures();
     while (window.isOpen())
     {
