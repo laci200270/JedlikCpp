@@ -17,7 +17,6 @@ int main() {
     player1.loadTexture();
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
     sf::View view(sf::FloatRect(200,200,WIDTH*SCALING_W,HEIGHT*SCALING_H));
-
     window.setView(view);
     window.setFramerateLimit(60);
     World world(player1);
@@ -40,6 +39,8 @@ int main() {
 
         if(!GameManager::getGameRunning()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             GameManager::startGame();
+        view.move(6,0);
+        window.setView(view);
         world.tick();
         window.setActive();
         world.render(window);
