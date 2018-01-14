@@ -29,3 +29,7 @@ void World::addObject(WorldObject* object) {
 
     worldObjects.emplace_back(object);
 }
+void World::addObject(std::shared_ptr<WorldObject> object) {
+
+    worldObjects.emplace_back(object);
+}

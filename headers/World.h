@@ -19,6 +19,7 @@ public:
     void tick();
     void loadTextures();
     void addObject(WorldObject* object);
+    void addObject(std::shared_ptr<WorldObject> object);
 };
 
 
