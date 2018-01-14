@@ -5,6 +5,7 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <iostream>
+#include <SFML/Graphics/RectangleShape.hpp>
 #include "../headers/Pipe.h"
 #include "../headers/configs.h"
 
@@ -19,8 +20,7 @@ void Pipe::loadTexture() {
 #if DBG_TEXTURES == 1
     std::cout<<"Pipe texture loaded"<<std::endl;
 #endif
-    //sprite.scale(3,3);
-    //sprite.setPosition(400,700);
+
 
 }
 
@@ -28,6 +28,15 @@ void Pipe::render(sf::RenderWindow &window) {
 #if DBG_USELESS_RENDER_LOGS
     std::cout<<"Rendering"<<std::endl;
     std::cout << "a pipe at " << sprite.getPosition().x <<" ; "<<sprite.getPosition().y<<std::endl;
+#endif
+#if DBG_BOUNDING_BOX==1
+    sf::FloatRect floatRect=sprite.getGlobalBounds();
+    sf::RectangleShape rectangleShape(sf::Vector2f(floatRect.width,floatRect.height));
+    rectangleShape.move(floatRect.left,floatRect.top);
+    rectangleShape.setFillColor(sf::Color::Transparent);
+    rectangleShape.setOutlineColor(sf::Color::Red);
+    rectangleShape.setOutlineThickness(15);
+    window.draw(rectangleShape);
 #endif
     window.draw(sprite);
 }

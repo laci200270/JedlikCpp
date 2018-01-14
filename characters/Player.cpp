@@ -28,6 +28,7 @@ void Player::loadTexture() {
 
 void Player::render(sf::RenderWindow &window) {
     window.draw(sprite);
+#if DBG_BOUNDING_BOX==1
     FloatRect floatRect=sprite.getGlobalBounds();
     RectangleShape rectangleShape(Vector2f(floatRect.width,floatRect.height));
     rectangleShape.move(floatRect.left,floatRect.top);
@@ -35,7 +36,7 @@ void Player::render(sf::RenderWindow &window) {
     rectangleShape.setOutlineColor(Color::Red);
     rectangleShape.setOutlineThickness(15);
     window.draw(rectangleShape);
-
+#endif
 }
 void Player::update(list<std::shared_ptr<WorldObject>> &worldObjects) {
 
