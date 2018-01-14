@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "headers/Player.h"
 #include "headers/World.h"
-#include "headers/Wall.h"
 #include "headers/configs.h"
 #include "headers/GameManager.h"
 #include "headers/Pipe.h"
@@ -19,11 +18,21 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
     sf::View view(sf::FloatRect(200,200,WIDTH*SCALING_W,HEIGHT*SCALING_H));
     window.setView(view);
-    Pipe* pipes[]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
+    std::list<std::shared_ptr<Pipe>> pipes;
+    for(int i=0;i<16;i++){
+        Pipe* pipe=new Pipe();
+        pipe->move((WIDTH*SCALING_W)+i*300,i%2==0?HEIGHT-30:0);
+        std::shared_ptr<Pipe> pipePtr(pipe);
+        pipes.emplace_back(pipePtr);
+    }
 
     window.setFramerateLimit(60);
     World world(player1);
+    for(auto&& pipe:pipes){
+        world.addObject(pipe);
+    }
     world.loadTextures();
+
     while (window.isOpen())
     {
 
