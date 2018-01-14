@@ -17,6 +17,8 @@ public:
         virtual void render(sf::RenderWindow &window){} ;
         virtual bool isSolidForPlayer(){ return true;};
         virtual bool isSolidForObject(WorldObject object){};
+        virtual void move(sf::Vector2f coords){};
+        virtual void move(float x,float y){};
 };
 
 
