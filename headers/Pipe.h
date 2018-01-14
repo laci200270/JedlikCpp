@@ -27,7 +27,7 @@ public:
 
     sf::Rect<float> getBoundingBox() override;
 
-    void move(sf::Vector2f coords) override;
+    void move(sf::Vector2f &coords) override;
 
     void move(float x, float y) override;
 };

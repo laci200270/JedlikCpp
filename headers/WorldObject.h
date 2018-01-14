@@ -24,7 +24,7 @@ public:
 
     virtual bool isSolidForObject(WorldObject object) {};
 
-    virtual void move(sf::Vector2f coords) {};
+    virtual void move(sf::Vector2f &coords) {};
 
     virtual void move(float x, float y) {};
 };

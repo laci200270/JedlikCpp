@@ -13,10 +13,10 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
     sf::View view(sf::FloatRect(200, 200, WIDTH * SCALING_W, HEIGHT * SCALING_H));
     window.setView(view);
-    std::list<std::shared_ptr<Pipe>> pipes;
+    std::vector<std::shared_ptr<Pipe>> pipes;
     for (int i = 0; i < 16; i++) {
         Pipe *pipe = new Pipe();
-        pipe->move(WIDTH * SCALING_W + i * 600 + 1200, 800);
+
         std::shared_ptr<Pipe> pipePtr(pipe);
         pipes.emplace_back(pipePtr);
     }
@@ -27,7 +27,10 @@ int main() {
         world.addObject(pipe);
     }
     world.loadTextures();
-
+    for(int i=0;i<16;i++){
+        Pipe* pipe=pipes.at(i).get();
+        pipe->move(/*WIDTH * SCALING_W )+*/ i * 600 + 1200, 800);
+    }
     while (window.isOpen()) {
 
         sf::Event event;

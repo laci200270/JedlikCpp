@@ -38,7 +38,7 @@ sf::Rect<float> Wall::getBoundingBox() {
     return sprite.getGlobalBounds();
 }
 
-void Wall::move(sf::Vector2f coords) {
+void Wall::move(sf::Vector2f &coords) {
 
 }
 

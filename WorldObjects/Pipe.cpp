@@ -25,7 +25,10 @@ void Pipe::loadTexture() {
 }
 
 void Pipe::render(sf::RenderWindow &window) {
-    // cout<<"Render"<<endl;
+#if DBG_USELESS_RENDER_LOGS
+    std::cout<<"Rendering"<<std::endl;
+    std::cout << "a pipe at " << sprite.getPosition().x <<" ; "<<sprite.getPosition().y<<std::endl;
+#endif
     window.draw(sprite);
 }
 
@@ -39,13 +42,13 @@ sf::Rect<float> Pipe::getBoundingBox() {
     return sprite.getGlobalBounds();
 }
 
-void Pipe::move(sf::Vector2f coords) {
+void Pipe::move(sf::Vector2f &coords) {
     move(coords.x, coords.y);
 }
 
 void Pipe::move(float x, float y) {
 #if DBG_USELESS_MOVING_LOGS==1
-    std::cout << "Moving a pipe to" << x <<";"<<y<<std::endl;
+    std::cout << "Moving a pipe to" << x <<" ; "<<y<<std::endl;
 #endif
     sprite.setPosition(x, y);
 }
