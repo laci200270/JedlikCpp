@@ -11,10 +11,12 @@
 #include "World.h"
 
 using namespace std;
+
 class WorldUtils { ;
 
 public:
-    static list<shared_ptr<WorldObject>>  getObjectsUnderCoord(float height, list<std::shared_ptr<WorldObject>>  &worldObjects);
+    static list<shared_ptr<WorldObject>>
+    getObjectsUnderCoord(float height, list<std::shared_ptr<WorldObject>> &worldObjects);
 };
 
 

@@ -4,40 +4,44 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
-#include <iostream>
 #include "../headers/Wall.h"
 
 
 void Wall::update() {
 
 }
+
 void Wall::loadTexture() {
-    texture=sf::Texture();
+    texture = sf::Texture();
     texture.loadFromFile("textures/wall.gif");
-    sprite=sf::Sprite(texture);
-   #if DBG_TEXTURES ==1
+    sprite = sf::Sprite(texture);
+#if DBG_TEXTURES == 1
     std::cout<<"Wall texture loaded"<<std::endl;
-   #endif
+#endif
     //sprite.scale(0.1ff);
-    sprite.setPosition(400,700);
+    sprite.setPosition(400, 700);
 
 }
- void Wall::render(sf::RenderWindow &window) {
-   // cout<<"Render"<<endl;
+
+void Wall::render(sf::RenderWindow &window) {
+    // cout<<"Render"<<endl;
     window.draw(sprite);
 }
 
 bool Wall::doesRectCollide(const sf::Rect<float> &rectangle) {
-   //return true;
+    //return true;
     return sprite.getGlobalBounds().intersects(rectangle);
 
 }
+
 sf::Rect<float> Wall::getBoundingBox() {
     return sprite.getGlobalBounds();
 }
+
 void Wall::move(sf::Vector2f coords) {
 
 }
+
 void Wall::move(float x, float y) {
 
 }

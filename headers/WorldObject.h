@@ -8,17 +8,25 @@
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
- class WorldObject {
+class WorldObject {
 public:
-        virtual bool doesRectCollide(const sf::Rect<float> &rectangle){};
-        virtual sf::Rect<float> getBoundingBox(){};
-        virtual void update(){};
-        virtual void loadTexture(){};
-        virtual void render(sf::RenderWindow &window){} ;
-        virtual bool isSolidForPlayer(){ return true;};
-        virtual bool isSolidForObject(WorldObject object){};
-        virtual void move(sf::Vector2f coords){};
-        virtual void move(float x,float y){};
+    virtual bool doesRectCollide(const sf::Rect<float> &rectangle) {};
+
+    virtual sf::Rect<float> getBoundingBox() {};
+
+    virtual void update() {};
+
+    virtual void loadTexture() {};
+
+    virtual void render(sf::RenderWindow &window) {};
+
+    virtual bool isSolidForPlayer() { return true; };
+
+    virtual bool isSolidForObject(WorldObject object) {};
+
+    virtual void move(sf::Vector2f coords) {};
+
+    virtual void move(float x, float y) {};
 };
 
 

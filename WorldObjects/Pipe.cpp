@@ -4,17 +4,17 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
-#include <iostream>
 #include "../headers/Pipe.h"
 
 
 void Pipe::update() {
 
 }
+
 void Pipe::loadTexture() {
-    texture=sf::Texture();
+    texture = sf::Texture();
     texture.loadFromFile("textures/pipe.png");
-    sprite=sf::Sprite(texture);
+    sprite = sf::Sprite(texture);
 #if DBG_TEXTURES == 1
     std::cout<<"Pipe texture loaded"<<std::endl;
 #endif
@@ -22,6 +22,7 @@ void Pipe::loadTexture() {
     //sprite.setPosition(400,700);
 
 }
+
 void Pipe::render(sf::RenderWindow &window) {
     // cout<<"Render"<<endl;
     window.draw(sprite);
@@ -32,12 +33,15 @@ bool Pipe::doesRectCollide(const sf::Rect<float> &rectangle) {
     return sprite.getGlobalBounds().intersects(rectangle);
 
 }
+
 sf::Rect<float> Pipe::getBoundingBox() {
     return sprite.getGlobalBounds();
 }
+
 void Pipe::move(sf::Vector2f coords) {
-    move(coords.x,coords.y);
+    move(coords.x, coords.y);
 }
+
 void Pipe::move(float x, float y) {
-    sprite.setPosition(x,y);
+    sprite.setPosition(x, y);
 }

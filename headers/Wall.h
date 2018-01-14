@@ -12,17 +12,24 @@
 #include "WorldObject.h"
 
 class Wall : public WorldObject {
-protected: int size;
+protected:
+    int size;
     sf::Texture texture;
     sf::Sprite sprite;
 public:
-    void update() override ;
-    void loadTexture() override ;
-    void render(sf::RenderWindow &window) override ;
-    bool doesRectCollide(const sf::Rect<float> &rectangle)  ;
-    sf::Rect<float> getBoundingBox() override ;
-    void move(sf::Vector2f coords) override ;
-    void move(float x,float y) override ;
+    void update() override;
+
+    void loadTexture() override;
+
+    void render(sf::RenderWindow &window) override;
+
+    bool doesRectCollide(const sf::Rect<float> &rectangle);
+
+    sf::Rect<float> getBoundingBox() override;
+
+    void move(sf::Vector2f coords) override;
+
+    void move(float x, float y) override;
 };
 
 

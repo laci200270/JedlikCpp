@@ -10,7 +10,9 @@ class GameManager {
 
 public:
     static bool isGameRunning;
+
     static void startGame();
+
     static bool getGameRunning();
 
 };

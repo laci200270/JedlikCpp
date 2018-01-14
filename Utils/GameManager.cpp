@@ -3,10 +3,13 @@
 //
 
 #include "../headers/GameManager.h"
-bool GameManager::isGameRunning=false;
+
+bool GameManager::isGameRunning = false;
+
 bool GameManager::getGameRunning() {
     return isGameRunning;
 }
+
 void GameManager::startGame() {
-    isGameRunning=true;
+    isGameRunning = true;
 }
