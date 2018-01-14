@@ -9,6 +9,6 @@
 #define SCALING_W 2
 #define SCALING_H 2
 #define MOVINGSPEEDX 8
-#define DBG_TEXTURES 1
+#define DBG_TEXTURES 0
 #define DBG_USELESS_MOVING_LOGS 1
 #endif //JEDLIKGAME_CONFIGS_H
