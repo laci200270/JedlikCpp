@@ -15,7 +15,9 @@ void Pipe::loadTexture() {
     texture=sf::Texture();
     texture.loadFromFile("textures/pipe.png");
     sprite=sf::Sprite(texture);
+#if DBG_TEXTURES == 1
     std::cout<<"Pipe texture loaded"<<std::endl;
+#endif
     //sprite.scale(3,3);
     //sprite.setPosition(400,700);
 

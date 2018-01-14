@@ -15,7 +15,9 @@ void Wall::loadTexture() {
     texture=sf::Texture();
     texture.loadFromFile("textures/wall.gif");
     sprite=sf::Sprite(texture);
+   #if DBG_TEXTURES ==1
     std::cout<<"Wall texture loaded"<<std::endl;
+   #endif
     //sprite.scale(0.1ff);
     sprite.setPosition(400,700);
 
