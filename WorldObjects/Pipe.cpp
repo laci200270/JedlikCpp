@@ -16,7 +16,7 @@ void Pipe::loadTexture() {
     texture.loadFromFile("textures/pipe.png");
     sprite=sf::Sprite(texture);
     std::cout<<"Pipe texture loaded"<<std::endl;
-    //sprite.scale(0.1ff);
+    //sprite.scale(3,3);
     sprite.setPosition(400,700);
 
 }
@@ -32,8 +32,10 @@ bool Pipe::doesRectCollide(const sf::Rect<float> &rectangle) {
 }
 sf::Rect<float> Pipe::getBoundingBox() {
     return sprite.getGlobalBounds();
-}//
-// Created by laci200270 on 2018.01.13..
-//
-
-#include "../headers/Pipe.h"
+}
+void Pipe::move(sf::Vector2f coords) {
+    move(coords.x,coords.y);
+}
+void Pipe::move(float x, float y) {
+    sprite.setPosition(x,y);
+}
