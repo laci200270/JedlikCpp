@@ -30,6 +30,8 @@ public:
     void move(sf::Vector2f &coords) override;
 
     void move(float x, float y) override;
+
+    void flip();
 };
 
 

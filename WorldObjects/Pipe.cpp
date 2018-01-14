@@ -61,3 +61,7 @@ void Pipe::move(float x, float y) {
 #endif
     sprite.setPosition(x, y);
 }
+
+void Pipe::flip(){
+    sprite.rotate(180);
+}

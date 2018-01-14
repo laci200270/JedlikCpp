@@ -29,7 +29,11 @@ int main() {
     world.loadTextures();
     for(int i=0;i<16;i++){
         Pipe* pipe=pipes.at(i).get();
-        pipe->move(/*WIDTH * SCALING_W )+*/ i * 600 + 1200, 800);
+        pipe->move((WIDTH * SCALING_W ) +i * 600 + 1200, 800);
+        if(i%2==0)
+        {
+            pipe->flip();
+        }
     }
     while (window.isOpen()) {
 
