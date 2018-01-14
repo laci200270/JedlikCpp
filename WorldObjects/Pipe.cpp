@@ -4,8 +4,9 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <iostream>
 #include "../headers/Pipe.h"
-
+#include "../headers/configs.h"
 
 void Pipe::update() {
 
@@ -43,5 +44,8 @@ void Pipe::move(sf::Vector2f coords) {
 }
 
 void Pipe::move(float x, float y) {
+#if DBG_USELESS_MOVING_LOGS==1
+    std::cout << "Moving a pipe to" << x <<";"<<y<<std::endl;
+#endif
     sprite.setPosition(x, y);
 }
