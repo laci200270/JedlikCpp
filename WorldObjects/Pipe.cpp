@@ -17,7 +17,7 @@ void Pipe::loadTexture() {
     sprite=sf::Sprite(texture);
     std::cout<<"Pipe texture loaded"<<std::endl;
     //sprite.scale(3,3);
-    sprite.setPosition(400,700);
+    //sprite.setPosition(400,700);
 
 }
 void Pipe::render(sf::RenderWindow &window) {
